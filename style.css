@@ -49,6 +49,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Futura Book';
+    src: url('fonts/Futura-Book.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body { font-family: 'Droid Serif'; }
 h1, h2, h3 {
     font-family: 'Yanone Kaffeesatz';
@@ -64,7 +71,7 @@ a, a:visited, a:hover, a:active { text-decoration: none; color: inherit; }
 
 /* Typeset */
 
-.remark-slide-content.typeset h1, .remark-slide-content.typeset h2, .remark-slide-content.typeset h3 { font-family: 'Futura Bk'; text-transform: uppercase; } 
+.remark-slide-content.typeset h1, .remark-slide-content.typeset h2, .remark-slide-content.typeset h3 { font-family: 'Futura Book'; text-transform: uppercase; }
 
 /* Code */
 
