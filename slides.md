@@ -1,14 +1,12 @@
-class: splash
-name: change the rules with magic apis
+class: splash typeset
+name: title
 background-image: url(images/title/sean-patrick-murphy-551711-unsplash.jpg)
 
-???
-
-Typesetting needed
+# Change the world<br />with magic APIs!
 
 ---
 class: splash
-name: hi
+name: hello
 background-image: url(images/hello/samuel-zeller-362021-unsplash.jpg)
 
 ---
@@ -109,13 +107,11 @@ name: library
 background-image: url(images/library/acamica-task-github-npm.png)
 
 ---
-class: splash
+class: splash typeset
 name: api-design
 background-image: url(images/design/edho-pratama-149011-unsplash.jpg)
 
-???
-
-Typesetting needed
+# API
 
 ---
 class: splash
@@ -230,13 +226,11 @@ name: disclaimer
 background-image: url(images/disclaimer/erica-nilsson-580402-unsplash.jpg)
 
 ---
-class: splash
+class: splash typeset
 name: proxies
 background-image: url(images/proxies/matthew-henry-20172-unsplash.jpg)
 
-???
-
-Typesetting needed
+# Proxies
 
 ---
 class: code ide
@@ -358,22 +352,16 @@ name: virtual-objects
 background-image: url(images/virtual/mathieu-perrier-723464-unsplash.jpg)
 
 ---
-class: splash
+class: splash typeset
 name: semantics
 background-image: url(images/semantics/andre-benz-256762-unsplash.jpg)
 
-???
-
-Typesetting needed
+# Semantics
 
 ---
 class: splash
 name: what-can-we-do-proxies
 background-image: url(images/what-can-we-do/toshi-1072056-unsplash.jpg)
-
-???
-
-Typesetting needed
 
 ---
 class: code ide
@@ -457,13 +445,11 @@ if ('baz' in P.foo.bar.qux) {
 ```
 
 ---
-class: splash
+class: splash typeset
 name: demo
 background-image: url(images/demo/rawpixel-632465-unsplash.jpg)
 
-???
-
-Typesetting needed
+# Demo<br />time
 
 ---
 class: code ide
@@ -597,11 +583,6 @@ console.log(L.foo.bar.qux.$);
 ```
 
 ---
-class: splash
-name: just-the-start
-background-image: url(images/just-the-start/chris-knight-458508-unsplash.jpg)
-
----
 
 class: code ide
 name: composition
@@ -642,53 +623,54 @@ console.log(
 
 ---
 class: splash
+name: just-the-start
+background-image: url(images/just-the-start/chris-knight-458508-unsplash.jpg)
+
+---
+class: splash
 name: your-turn
 background-image: url(images/outro/clark-tibbs-367075-unsplash.jpg)
 
 ---
-class: splash
+class: splash typeset
 name: thank-you
 background-image: url(images/thank-you/gerald-dino-466158-unsplash.jpg)
 
-???
+# Thank<br />you
 
-Typesetting needed
+## [@mvaldesdeleon](https://twitter.com/mvaldesdeleon)<br />[github.com/mvaldesdeleon/magic-apis](https://github.com/mvaldesdeleon/magic-apis)
 
 ---
-class: splash
+class: splash typeset
 name: proxy-references
 background-image: url(images/references/gabriel-sollmann-704393-unsplash.jpg)
 
-???
+# References
 
-Typesetting needed
+## In depth
+### [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
+### [Exploring ES6 Ch. 28: Metaprogramming with proxies](http://exploringjs.com/es6/ch_proxies.html)
 
-Proxies in depth:
-[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
-[Exploring ES6 Ch. 28: Metaprogramming with proxies](http://exploringjs.com/es6/ch_proxies.html)
-
-Interesting libraries using proxies:
-[Redis Client](https://github.com/Ovyerus/redite)
-[REST Client](https://github.com/humana-fragilitas/ES6-Rest-Client)
-[Functional Lenses](https://github.com/ochafik/es6-lenses)
-[Nicer Living Objects](https://www.npmjs.com/package/object-fsify)
-[Nicer Living Objects](https://github.com/bchr02/filejson)
-[File System Abstraction](https://github.com/williamkapke/ezfs)
-[Typo Correction](https://github.com/mathiasbynens/tpyo)
-[Fluent Assertions](https://github.com/yairper/chai-by-proxy)
-[Pattern Matching](https://www.npmjs.com/package/xmatch)
+## Libraries
+### [Redis Client](https://github.com/Ovyerus/redite)
+### [REST Client](https://github.com/humana-fragilitas/ES6-Rest-Client)
+### [Functional Lenses](https://github.com/ochafik/es6-lenses)
+### [Nicer Living Objects](https://www.npmjs.com/package/object-fsify)
+### [Nicer Living Objects](https://github.com/bchr02/filejson)
+### [File System Abstraction](https://github.com/williamkapke/ezfs)
+### [Typo Correction](https://github.com/mathiasbynens/tpyo)
+### [Fluent Assertions](https://github.com/yairper/chai-by-proxy)
+### [Pattern Matching](https://www.npmjs.com/package/xmatch)
 
 ---
-class: splash
+class: splash typeset
 name: photo-references
 background-image: url(images/references/jason-leung-507082-unsplash.jpg)
 
-???
+# Photography
 
-Typesetting needed
-
-In order of appearance, via unsplash.com:
-
+## In order of appearance, via [unsplash.com](https://unsplash.com/):
+### [Sean Patrick Murphy](https://unsplash.com/photos/089q6pMX-AI), [Samuel Zeller](https://unsplash.com/photos/nSrY5fJ4B60), [Hack Capital](https://unsplash.com/photos/uv5_bsypFUM), [Yung Chang](https://unsplash.com/photos/qAShc5SV83M), [Fabio Bracht](https://unsplash.com/photos/e3oE-l-rtpA), [Edho Pratma](https://unsplash.com/photos/T6fDN60bMWY), [Andrej Lišakov](https://unsplash.com/photos/V2OyJtFqEtY), [Owen Beard](https://unsplash.com/photos/DK8jXx1B-1c), [Erica Nilsson](https://unsplash.com/photos/mNIE4uaD3do), [Matthew Henry](https://unsplash.com/photos/U5rMrSI7Pn4), [Chris Fuller](https://unsplash.com/photos/TXMp-vvrCg4), [Rod Long](https://unsplash.com/photos/siTxjRLSkTA), [Mathieu Perrier](https://unsplash.com/photos/YY8TCS9Px4c), [Andre Benz](https://unsplash.com/photos/Mn9Fa_wQH-M), [Toshi](https://unsplash.com/photos/9z6bXecIAi0), [rawpixel](https://unsplash.com/photos/6q6qRY2LQJQ), [Chris Knight](https://unsplash.com/photos/CxDTMOGnQwU), [Clark Tibbs](https://unsplash.com/photos/oqStl2L5oxI), [Gerald Dino](https://unsplash.com/photos/foBGqA36r2o), [Gabriel Sollmann](https://unsplash.com/photos/Y7d265_7i08) and [Jason Leung](https://unsplash.com/photos/pLwh3AI1zKE)
 
 ---
 exclude: true
