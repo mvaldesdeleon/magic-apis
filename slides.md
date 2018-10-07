@@ -1,32 +1,33 @@
 class: splash
-layout: true
-
----
-class: title
 name: change the rules with magic apis
 background-image: url(images/title/sean-patrick-murphy-551711-unsplash.jpg)
 
+???
+
+Typesetting needed
+
 ---
+class: splash
 name: hi
 background-image: url(images/hello/samuel-zeller-362021-unsplash.jpg)
 
 ---
-name: software developer
+class: splash
+name: software-developer
 background-image: url(images/software-developer/hack-capital-568971-unsplash.jpg)
 
 ---
-name: solving the same problem multiple times
+class: splash
+name: solving-the-same-problem-multiple-times
 background-image: url(images/ad-hoc/yung-chang-108329-unsplash.jpg)
 
 ---
-name: something generic we can reuse
+class: splash
+name: something-generic-we-can-reuse
 background-image: url(images/reuse/fabio-bracht-694774-unsplash.jpg)
 
 ---
-layout: true
 class: code ide
-
----
 name: function
 
 ```
@@ -46,6 +47,7 @@ function usefulThing() {
 ```
 
 ---
+class: code ide
 name: utils
 
 ```
@@ -76,6 +78,7 @@ module.exports = {
 ```
 
 ---
+class: code ide
 name: module
 
 ```
@@ -102,238 +105,712 @@ module.exports = {
 
 ---
 class: splash
-layout: true
-
----
 name: library
 background-image: url(images/library/acamica-task-github-npm.png)
 
 ---
-name: api design
+class: splash
+name: api-design
+background-image: url(images/design/edho-pratama-149011-unsplash.jpg)
+
+???
+
+Typesetting needed
+
+---
+class: splash
+name: what-we-mean-by-api
+background-image: url(images/design/andrej-lisakov-686125-unsplash.jpg)
+
+---
+class: code ide
+name: expose-one-or-multiple-functions
+
+```
+cool-project/
+  src/
+    index.js
+*    utils.js
+```
+
+```
+function usefulThing() {
+    /* ... */
+}
+
+function anotherUsefulThing() {
+    /* ... */
+}
+
+function mostDefinitelyAnUsefulThing() {
+    /* ... */
+}
+
+module.exports = {
+    usefulThing,
+    anotherUsefulThing,
+    mostDefinitelyAnUsefulThing
+};
+```
+
+---
+class: code ide
+name: oop
+
+```
+cool-project/
+  src/
+    index.js
+*    utils.js
+```
+
+```
+class UsefulThing {
+    constructor() {
+        /* ... */
+    }
+
+    doTheThing() {
+        /* ... */
+    }
+
+    doTheOtherThing() {
+        /* ... */
+    }
+}
+
+module.exports = {
+    UsefulThing
+};
+```
+
+---
+class: code ide
+name: chainable-api
+
+```
+cool-project/
+  src/
+*    index.js
+    utils.js
+```
+
+```
+const { UsefulThing } = require('./utils.js');
+
+/* Indexy things */
+
+const thing = new UsefulThing();
+
+thing.doTheThing()
+    .doTheOtherThing()
+    .doTheThing();
+
+/* More indexy things... */
+```
+
+---
+class: splash
+name: ok
+background-image: url(images/ok/owen-beard-722582-unsplash.jpg)
+
+---
+class: splash
+name: no-js
+background-image: url(images/no-js/no-js.svg)
+
+---
+class: splash
+name: js
+background-image: url(images/no-js/js.svg)
+
+---
+class: splash
+name: disclaimer
+background-image: url(images/disclaimer/erica-nilsson-580402-unsplash.jpg)
+
+---
+class: splash
+name: proxies
+background-image: url(images/proxies/matthew-henry-20172-unsplash.jpg)
+
+???
+
+Typesetting needed
+
+---
+class: code ide
+name: getters-setters
+
+```
+proxies/
+  src/
+*    getters-setters.js
+    proxy-intro.js
+    proxy-rest.js
+```
+
+```
+const demo = {
+    bar: 0,
+    get foo() {
+        return this.bar * 2;
+    },
+    set foo(_foo) {
+        this.bar = _foo + 1;
+    }
+};
+
+demo.foo = 5;
+
+console.log('foo', demo.foo);
+```
+
+---
+class: code ide
+name: proxy-intro
+
+```
+proxies/
+  src/
+    getters-setters.js
+*    proxy-intro.js
+    proxy-rest.js
+```
+
+```
+const handler = {
+    get: function(target, property, receiver) {
+        return target[property] * 2;
+    },
+    set: function(target, property, value, receiver) {
+        return Reflect.set(target, property, value + 1, receiver);
+    }
+};
+
+const target = {};
+const proxy = new Proxy(target, handler);
+
+proxy.foo = 5;
+
+console.log('foo', proxy.foo);
+
+proxy.bar = 10;
+
+console.log('bar', proxy.bar);
+```
+
+---
+class: splash
+name: lots-of-traps
+background-image: url(images/traps/chris-fuller-481199-unsplash.jpg)
+
+---
+class: splash
+name: three-traps-more
+background-image: url(images/traps/rod-long-403704-unsplash.jpg)
+
+---
+class: code ide
+name: proxy-rest
+
+```
+proxies/
+  src/
+    getters-setters.js
+    proxy-intro.js
+*    proxy-rest.js
+```
+
+```
+const handler = {
+    deleteProperty: function(target, property) {
+        target[property] = 'nope';
+        return true;
+    },
+    has: function(target, property) {
+        return property.length % 2;
+    },
+    apply: function(target, thisArg, argumentsList) {
+        target.args = argumentsList;
+        return target;
+    }
+};
+
+const target = () => {};
+const proxy = new Proxy(target, handler);
+
+delete proxy.foo;
+
+console.log('foo', proxy.foo);
+
+console.log('odd', 'odd' in proxy);
+console.log('even', 'even' in proxy);
+
+proxy('some', 'args');
+
+console.log('args', proxy.args);
+```
+
+---
+class: splash
+name: virtual-objects
+background-image: url(images/virtual/mathieu-perrier-723464-unsplash.jpg)
+
+---
+class: splash
+name: semantics
+background-image: url(images/semantics/andre-benz-256762-unsplash.jpg)
+
+???
+
+Typesetting needed
+
+---
+class: splash
+name: what-can-we-do-proxies
+background-image: url(images/what-can-we-do/toshi-1072056-unsplash.jpg)
+
+???
+
+Typesetting needed
+
+---
+class: code ide
+name: arbitrarily-nested-paths
+
+```
+examples/
+  src/
+    api.js
+    composition.js
+    deep-get-set.js
+    ezp.js
+    living-objects.js
+*    nested-paths.js
+    proxies.js
+```
+
+```
+const { A, B, C, D, E } = require('./proxies.js');
+
+A.foo.bar.qux = 'baz';
+
+console.log(B.foo.bar.qux);
+
+C.foo.bar.qux('baz');
+
+delete D.foo.bar.qux;
+
+if ('baz' in E.foo.bar.qux) {
+    /* ... */
+}
+```
+
+---
+class: splash
+name: ezp-pitch
+background-image: url(images/ezp/mvaldesdeleon-ezp-github-npm.png)
+
+---
+class: code ide
+name: ezp-example
+
+```
+examples/
+  src/
+    api.js
+    composition.js
+    deep-get-set.js
+*    ezp.js
+    living-objects.js
+    nested-paths.js
+    proxies.js
+```
+
+```
+const ezp = require('ezp');
+
+const probe = ezp({
+    // get: function(props) { ... }
+    // set: function(props, value) { ... }
+    // delete: function(props) { ... }
+    // has: function(props, value) { ... }
+    apply: function([method], args) {
+        console.log(`[${method.toUpperCase()}] `, ...args)
+    }
+});
+
+const P = ezp(probe, '$');
+
+P.foo.bar.qux = 'baz';
+
+console.log(P.foo.bar.qux.$);
+
+P.foo.bar.qux('baz');
+
+delete P.foo.bar.qux;
+
+if ('baz' in P.foo.bar.qux) {
+    /* ... */
+}
+```
+
+---
+class: splash
+name: demo
+background-image: url(images/demo/rawpixel-632465-unsplash.jpg)
+
+???
+
+Typesetting needed
+
+---
+class: code ide
+name: api-calls
+
+```
+examples/
+  src/
+*    api.js
+    composition.js
+    deep-get-set.js
+    ezp.js
+    living-objects.js
+    nested-paths.js
+    proxies.js
+```
+
+```
+const ezp = require('ezp');
+
+/* ... */
+
+const API = ezp({
+    apply: async function(props, args) {
+        const [service, resource, method] = props;
+        const [payload] = args;
+
+        if (!methodValid(method))
+            throw new Error(`Invalid method for resource ${resource}: ${method}`);
+
+        return request(
+            `https://${service}.foobar.com/${resource}`,
+            httpMethod(method),
+            payload
+        );
+    }
+});
+
+API.sales.orders.create({ /* ... */ });
+
+API.crm.customers.list();
+```
+
+---
+class: code ide
+name: deep-getter-setter
+
+```
+examples/
+  src/
+    api.js
+    composition.js
+*    deep-get-set.js
+    ezp.js
+    living-objects.js
+    nested-paths.js
+    proxies.js
+```
+
+```
+const ezp = require('ezp');
+
+const toPath = props => props.join('.');
+
+function deep() {
+    const values = new Map();
+
+    return ezp({
+        get: function(props) {
+            return values.get(toPath(props));
+        },
+        set: function(props, value) {
+            values.set(toPath(props), value);
+        }
+    }, '$');
+}
+
+const D = deep();
+
+D.foo.bar.qux = 'baz';
+
+console.log(D.foo.bar.qux.$);
+```
+
+---
+class: code ide
+name: living-objects
+
+```
+examples/
+  src/
+    api.js
+    composition.js
+    deep-get-set.js
+    ezp.js
+*    living-objects.js
+    nested-paths.js
+    proxies.js
+```
+
+```
+const ezp = require('ezp');
+const fs = require('fs');
+const path = require('path');
+const R = require('ramda');
+const util = require('util');
+
+function live(path) {
+    let data = {};
+    const dataLoaded = util.promisify(fs.readFile)(path)
+        .then(JSON.parse)
+        .then(fileData => data = R.mergeDeepRight(fileData, data));
+
+    return ezp({
+        get: function(props) {
+            return R.path(props, data);
+        },
+        set: async function(props, value) {
+            data = R.assocPath(props, value, data);
+            await dataLoaded;
+            return util.promisify(fs.writeFile)(path, JSON.stringify(data));
+        }
+    }, '$');
+}
+
+const L = live(path.resolve([process.cwd(), './.living-object.json']));
+
+L.foo.bar.qux = 'baz';
+
+console.log(L.foo.bar.qux.$);
+```
+
+---
+class: splash
+name: just-the-start
+background-image: url(images/just-the-start/chris-knight-458508-unsplash.jpg)
+
+---
+
+class: code ide
+name: composition
+
+```
+examples/
+  src/
+    api.js
+*    composition.js
+    deep-get-set.js
+    ezp.js
+    living-objects.js
+    nested-paths.js
+    proxies.js
+```
+
+```
+const ezp = require('ezp');
+
+function compose(map) {
+   return ezp({
+        apply: function(props, args) {
+            return props.reduceRight((result, prop) => [map[prop](...result)], args)[0];
+        }
+    });
+}
+
+let addOne = x => x + 1;
+let timesTwo = x => x * 2;
+let toString = x => x.toString();
+
+({addOne, timesTwo, toString} = compose({addOne, timesTwo, toString}));
+
+console.log(
+    [1,2,3].map(toString.timesTwo.addOne)
+);
+```
+
+---
+class: splash
+name: your-turn
+background-image: url(images/outro/clark-tibbs-367075-unsplash.jpg)
+
+---
+class: splash
+name: thank-you
+background-image: url(images/thank-you/gerald-dino-466158-unsplash.jpg)
+
+???
+
+Typesetting needed
+
+---
+class: splash
+name: proxy-references
+background-image: url(images/references/gabriel-sollmann-704393-unsplash.jpg)
+
+???
+
+Typesetting needed
+
+Proxies in depth:
+[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
+[Exploring ES6 Ch. 28: Metaprogramming with proxies](http://exploringjs.com/es6/ch_proxies.html)
+
+Interesting libraries using proxies:
+[Redis Client](https://github.com/Ovyerus/redite)
+[REST Client](https://github.com/humana-fragilitas/ES6-Rest-Client)
+[Functional Lenses](https://github.com/ochafik/es6-lenses)
+[Nicer Living Objects](https://www.npmjs.com/package/object-fsify)
+[Nicer Living Objects](https://github.com/bchr02/filejson)
+[File System Abstraction](https://github.com/williamkapke/ezfs)
+[Typo Correction](https://github.com/mathiasbynens/tpyo)
+[Fluent Assertions](https://github.com/yairper/chai-by-proxy)
+[Pattern Matching](https://www.npmjs.com/package/xmatch)
+
+---
+class: splash
+name: photo-references
+background-image: url(images/references/jason-leung-507082-unsplash.jpg)
+
+???
+
+Typesetting needed
+
+In order of appearance, via unsplash.com:
 
 
 ---
-name: what we mean by api
-
-
----
-
-# Expose one or multiple functions
-
-module.exports
-
----
-
-# Static functions or OOP
-
-more code
-
----
-
-# Chainable API optional
-
-more code
-
----
-
-# OK
-
----
-
-# No Javascript
-
----
-
-# ES6
-
----
-
-# Disclaimer
-
----
-
-# Proxies
-
----
-
-# Target / Handler / Traps
-
----
-
-# Getters / Setters
-
----
-
-# Lots of traps!
-
----
-
-# 3 More
-
----
-
-# Get / Set / Delete / Apply / Has
-
----
-
-# Semantics
-
----
-
-# Examples: Traps
-
----
-
-# Virtual Objects
-
----
-
-# What can we do?
-
----
-
-# Arbitrarily Nested Paths
-
----
-
-# ezp Pitch
-
----
-
-# Example: ezp
-
----
-
-# Demo: ezp to demo ezp?
-
----
-
-# Application: API Calls
-
----
-
-# Application: Deep getter/setter
-
----
-
-# Application: Living objects
-
----
-
-# Application: File-system abstractions
-
----
-
-# Just the start
-
----
-
-# Example: Composition
-
----
+exclude: true
 
 # Interlude
 
 ---
+exclude: true
 
 # Tagged Template Literals
 
 ---
+exclude: true
 
 # Example: Template Literals
 
 ---
+exclude: true
 
 # A new function
 
 ---
+exclude: true
 
 # Example: Used as tag
 
 ---
+exclude: true
 
 # A new function, arguments rewritten
 
 ---
+exclude: true
 
 # Guarantee
 
 ---
+exclude: true
 
 # Example: Tagged Template Literals
 
 ---
+exclude: true
 
 # Raw
 
 ---
+exclude: true
 
 # Example: Raw
 
 ---
+exclude: true
 
 # Expressions AS-IS
 
 ---
+exclude: true
 
 # Can return anything
 
 ---
+exclude: true
 
 # What can we do?
 
 ---
+exclude: true
 
 # Example: Internationalization
 
 ---
+exclude: true
 
 # Domain Specific Languages
 
 ---
+exclude: true
 
 # Example: UI
 
 ---
+exclude: true
 
 # Example: Embedded Languages: GraphQL
 
 ---
+exclude: true
 
 # Example: Embedded Languages: YAML
 
 ---
+exclude: true
 
 # Example: Embedded Languages: GraphQL
 
 ---
+exclude: true
 
 # Example: Embedded Languages: Markdown
 
 ---
+exclude: true
 
 # Example: Embedded Languages: CSS: Styled Components
 
 ---
+exclude: true
 
 # Own Domain Specific Languages
 
 ---
+exclude: true
 
 # Example: Embedded Languages: Switch Notation A
 
 ---
+exclude: true
 
 # Example: Embedded Languages: Switch Notation B
 
 ---
+exclude: true
 
-# Your turn
-
----
-
-# References
-
----
-
-# Thank you
+# References: Tagged Template Literals

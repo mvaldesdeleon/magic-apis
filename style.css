@@ -70,3 +70,12 @@ h1, h2, h3 {
 .remark-slide-content.code.ide pre:nth-child(1) { width: 20%; box-sizing: border-box; border-right: 2px solid #bbad88; }
 .remark-slide-content.code.ide pre:nth-child(1) .remark-code-line-highlighted { margin-left: -0.5em; margin-right: -0.5em; }
 .remark-slide-content.code.ide pre:nth-child(2) { width: 80%; }
+
+/* Individual Slides */
+
+#slide-what-we-mean-by-api { background-position-y: 15%; }
+#slide-ok { background-position-y: 30%; }
+#slide-no-js { background-position-y: 65%; filter: saturate(25%) blur(10px); }
+#slide-js { background-position-y: 65%; }
+#slide-lots-of-traps { background-position-y: 80%; }
+#slide-semantics { background-position-y: 0%; }
