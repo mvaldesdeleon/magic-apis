@@ -55,3 +55,18 @@ h1, h2, h3 {
     font-weight: normal;
 }
 .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+
+/* Splash */
+
+.remark-slide-content.splash { background-size: cover; }
+
+/* Code */
+
+.remark-slide-content.code { padding: 0; }
+.remark-slide-content.code pre { margin: 0; height: 100%; }
+.remark-slide-content.code code { height: 100%; }
+
+.remark-slide-content.code.ide pre { display: inline-block; width: 0; }
+.remark-slide-content.code.ide pre:nth-child(1) { width: 20%; box-sizing: border-box; border-right: 2px solid #bbad88; }
+.remark-slide-content.code.ide pre:nth-child(1) .remark-code-line-highlighted { margin-left: -0.5em; margin-right: -0.5em; }
+.remark-slide-content.code.ide pre:nth-child(2) { width: 80%; }
