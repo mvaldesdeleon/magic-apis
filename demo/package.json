@@ -1,0 +1,16 @@
+{
+  "name": "ezp-demo",
+  "version": "1.0.0",
+  "description": "ezp demo",
+  "main": "index.js",
+  "keywords": [
+    "ezp",
+    "demo",
+    "nodeconfar2018"
+  ],
+  "author": "Martin Valdes de Leon <m.valdesdeleon@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "ezp": "^1.0.0"
+  }
+}
