@@ -274,11 +274,12 @@ proxies/
 
 ```
 const handler = {
-    get: function(target, property, receiver) {
+    get: function(target, property) {
         return target[property] * 2;
     },
-    set: function(target, property, value, receiver) {
-        return Reflect.set(target, property, value + 1, receiver);
+    set: function(target, property, value) {
+        target[property] = value + 1;
+        return target[property];
     }
 };
 
@@ -419,17 +420,13 @@ examples/
 ```
 const ezp = require('ezp');
 
-const probe = ezp({
+const P = ezp({
     // get: function(props) { ... }
     // set: function(props, value) { ... }
     // delete: function(props) { ... }
     // has: function(props, value) { ... }
-    apply: function([method], args) {
-        console.log(`[${method.toUpperCase()}] `, ...args)
-    }
-});
-
-const P = ezp(probe, '$');
+    // apply: function(props, args) { ... }
+}, '$');
 
 P.foo.bar.qux = 'baz';
 
@@ -656,7 +653,8 @@ background-image: url(images/references/gabriel-sollmann-704393-unsplash.jpg)
 ### [REST Client](https://github.com/humana-fragilitas/ES6-Rest-Client)
 ### [Functional Lenses](https://github.com/ochafik/es6-lenses)
 ### [Nicer Living Objects](https://www.npmjs.com/package/object-fsify)
-### [Nicer Living Objects](https://github.com/bchr02/filejson)
+### [More Nicer Living Objects](https://github.com/bchr02/filejson)
+### [Living Objects meets Redux](https://github.com/mweststrate/immer)
 ### [File System Abstraction](https://github.com/williamkapke/ezfs)
 ### [Typo Correction](https://github.com/mathiasbynens/tpyo)
 ### [Fluent Assertions](https://github.com/yairper/chai-by-proxy)
