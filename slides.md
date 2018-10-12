@@ -348,6 +348,7 @@ console.log('args', proxy.args);
 ```
 
 ---
+exclude: true
 class: splash
 name: virtual-objects
 background-image: url(images/virtual/mathieu-perrier-723464-unsplash.jpg)
@@ -630,15 +631,6 @@ background-image: url(images/outro/clark-tibbs-367075-unsplash.jpg)
 
 ---
 class: splash typeset
-name: thank-you
-background-image: url(images/thank-you/gerald-dino-466158-unsplash.jpg)
-
-# Thank<br />you
-
-## [@mvaldesdeleon](https://twitter.com/mvaldesdeleon)<br />[github.com/mvaldesdeleon/magic-apis](https://github.com/mvaldesdeleon/magic-apis)
-
----
-class: splash typeset
 name: proxy-references
 background-image: url(images/references/gabriel-sollmann-704393-unsplash.jpg)
 
@@ -671,126 +663,10 @@ background-image: url(images/references/jason-leung-507082-unsplash.jpg)
 ### [Sean Patrick Murphy](https://unsplash.com/photos/089q6pMX-AI), [Samuel Zeller](https://unsplash.com/photos/nSrY5fJ4B60), [Hack Capital](https://unsplash.com/photos/uv5_bsypFUM), [Yung Chang](https://unsplash.com/photos/qAShc5SV83M), [Fabio Bracht](https://unsplash.com/photos/e3oE-l-rtpA), [Edho Pratma](https://unsplash.com/photos/T6fDN60bMWY), [Andrej Lišakov](https://unsplash.com/photos/V2OyJtFqEtY), [Owen Beard](https://unsplash.com/photos/DK8jXx1B-1c), [Erica Nilsson](https://unsplash.com/photos/mNIE4uaD3do), [Matthew Henry](https://unsplash.com/photos/U5rMrSI7Pn4), [Chris Fuller](https://unsplash.com/photos/TXMp-vvrCg4), [Rod Long](https://unsplash.com/photos/siTxjRLSkTA), [Mathieu Perrier](https://unsplash.com/photos/YY8TCS9Px4c), [Andre Benz](https://unsplash.com/photos/Mn9Fa_wQH-M), [Toshi](https://unsplash.com/photos/9z6bXecIAi0), [rawpixel](https://unsplash.com/photos/6q6qRY2LQJQ), [Chris Knight](https://unsplash.com/photos/CxDTMOGnQwU), [Clark Tibbs](https://unsplash.com/photos/oqStl2L5oxI), [Gerald Dino](https://unsplash.com/photos/foBGqA36r2o), [Gabriel Sollmann](https://unsplash.com/photos/Y7d265_7i08) and [Jason Leung](https://unsplash.com/photos/pLwh3AI1zKE)
 
 ---
-exclude: true
+class: splash typeset
+name: thank-you
+background-image: url(images/thank-you/gerald-dino-466158-unsplash.jpg)
 
-# Interlude
+# Thank<br />you
 
----
-exclude: true
-
-# Tagged Template Literals
-
----
-exclude: true
-
-# Example: Template Literals
-
----
-exclude: true
-
-# A new function
-
----
-exclude: true
-
-# Example: Used as tag
-
----
-exclude: true
-
-# A new function, arguments rewritten
-
----
-exclude: true
-
-# Guarantee
-
----
-exclude: true
-
-# Example: Tagged Template Literals
-
----
-exclude: true
-
-# Raw
-
----
-exclude: true
-
-# Example: Raw
-
----
-exclude: true
-
-# Expressions AS-IS
-
----
-exclude: true
-
-# Can return anything
-
----
-exclude: true
-
-# What can we do?
-
----
-exclude: true
-
-# Example: Internationalization
-
----
-exclude: true
-
-# Domain Specific Languages
-
----
-exclude: true
-
-# Example: UI
-
----
-exclude: true
-
-# Example: Embedded Languages: GraphQL
-
----
-exclude: true
-
-# Example: Embedded Languages: YAML
-
----
-exclude: true
-
-# Example: Embedded Languages: GraphQL
-
----
-exclude: true
-
-# Example: Embedded Languages: Markdown
-
----
-exclude: true
-
-# Example: Embedded Languages: CSS: Styled Components
-
----
-exclude: true
-
-# Own Domain Specific Languages
-
----
-exclude: true
-
-# Example: Embedded Languages: Switch Notation A
-
----
-exclude: true
-
-# Example: Embedded Languages: Switch Notation B
-
----
-exclude: true
-
-# References: Tagged Template Literals
+## [@mvaldesdeleon](https://twitter.com/mvaldesdeleon)<br />[github.com/mvaldesdeleon/magic-apis](https://github.com/mvaldesdeleon/magic-apis)
