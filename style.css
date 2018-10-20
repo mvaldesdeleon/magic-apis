@@ -61,7 +61,7 @@ h1, h2, h3 {
     font-family: 'Yanone Kaffeesatz';
     font-weight: normal;
 }
-.remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+.remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; font-size: 20px; }
 
 a, a:visited, a:hover, a:active { text-decoration: none; color: inherit; }
 
@@ -80,9 +80,9 @@ a, a:visited, a:hover, a:active { text-decoration: none; color: inherit; }
 .remark-slide-content.code code { height: 100%; }
 
 .remark-slide-content.code.ide pre { display: inline-block; width: 0; }
-.remark-slide-content.code.ide pre:nth-child(1) { width: 20%; box-sizing: border-box; border-right: 2px solid #bbad88; }
+.remark-slide-content.code.ide pre:nth-child(1) { width: 22%; box-sizing: border-box; border-right: 2px solid #bbad88; }
 .remark-slide-content.code.ide pre:nth-child(1) .remark-code-line-highlighted { margin-left: -0.5em; margin-right: -0.5em; }
-.remark-slide-content.code.ide pre:nth-child(2) { width: 80%; }
+.remark-slide-content.code.ide pre:nth-child(2) { width: 78%; }
 
 /* Individual Slides */
 
@@ -142,23 +142,7 @@ a, a:visited, a:hover, a:active { text-decoration: none; color: inherit; }
     bottom: 0;
 }
 
-#slide-thank-you { position: relative; color: white; }
-#slide-thank-you h1 {
-    font-size: 4em;
-    text-align: right;
-    position: absolute;
-    bottom: 10%;
-    right: 10%;
-    margin-bottom: 0;
-}
-#slide-thank-you h2 {
-    font-size: 1em;
-    position: absolute;
-    bottom: 10%;
-    margin-bottom: 0;
-}
-
-#slide-proxy-references { color: white; text-align: right; }
+#slide-proxy-references { color: white; text-align: right; text-shadow: 0px 0px 250px black; }
 #slide-proxy-references h1 {
     font-size: 3em;
     margin-bottom: 0;
@@ -174,7 +158,23 @@ a, a:visited, a:hover, a:active { text-decoration: none; color: inherit; }
     margin-bottom: 0.25em;
 }
 
-#slide-photo-references { color: white; padding-top: 30%; }
+#slide-thank-you { position: relative; color: white; text-shadow: 0px 0px 250px black; }
+#slide-thank-you h1 {
+    font-size: 4em;
+    text-align: right;
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    margin-bottom: 0;
+}
+#slide-thank-you h2 {
+    font-size: 1em;
+    position: absolute;
+    bottom: 12%;
+    margin-bottom: 0;
+}
+
+#slide-photo-references { color: white; padding-top: 30%; text-shadow: 0px 0px 250px black; }
 #slide-photo-references h1 {
     font-size: 3em;
     margin-bottom: 0;

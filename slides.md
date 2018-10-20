@@ -37,7 +37,7 @@ cool-project/
 ```
 /* Indexy things */
 
-function usefulThing() {
+function usefulThing(someArguments) {
     /* ... */
 }
 
@@ -83,28 +83,28 @@ name: module
 cool-project/
   src/
     foo-utils/
+      bar.js
+      foo.js
 *      index.js
-      output.js
-      parser.js
       utils.js
     index.js
 ```
 
 ```
-const { usefulFooThing, anotherUsefulFooThing } = require('./parser.js');
-const { mostDefinitelyAnUsefulFooThing } = require('./output.js');
+const { usefulFooThing, anotherUsefulFooThing } = require('./foo.js');
+const { mostDefinitelyAnUsefulBarThing } = require('./bar.js');
 
 module.exports = {
     usefulFooThing,
     anotherUsefulFooThing,
-    mostDefinitelyAnUsefulFooThing
+    mostDefinitelyAnUsefulBarThing
 };
 ```
 
 ---
 class: splash
 name: library
-background-image: url(images/library/acamica-task-github-npm.png)
+background-image: url(images/library/ts-task-task-github-npm.png)
 
 ---
 class: splash typeset
@@ -245,19 +245,19 @@ proxies/
 ```
 
 ```
-const demo = {
-    bar: 0,
+const example = {
     get foo() {
-        return this.bar * 2;
+        console.log('getter called');
+        return 42;
     },
-    set foo(_foo) {
-        this.bar = _foo + 1;
+    set foo(value) {
+        console.log(`setter called: ${value}`);
     }
 };
 
-demo.foo = 5;
+console.log('foo', example.foo); // 42
 
-console.log('foo', demo.foo);
+example.foo = 5;
 ```
 
 ---
@@ -275,35 +275,30 @@ proxies/
 ```
 const handler = {
     get: function(target, property) {
-        return target[property] * 2;
+        console.log(`"getter" called: ${property}`);
+        return 42;
     },
     set: function(target, property, value) {
-        target[property] = value + 1;
-        return target[property];
+        console.log(`"setter" called: ${property} = ${value}`);
     }
 };
 
 const target = {};
 const proxy = new Proxy(target, handler);
 
+console.log('foo', proxy.foo); // 42
+
 proxy.foo = 5;
 
-console.log('foo', proxy.foo);
+console.log('bar', proxy.bar); // 42
 
 proxy.bar = 10;
-
-console.log('bar', proxy.bar);
 ```
 
 ---
 class: splash
 name: lots-of-traps
-background-image: url(images/traps/chris-fuller-481199-unsplash.jpg)
-
----
-class: splash
-name: three-traps-more
-background-image: url(images/traps/rod-long-403704-unsplash.jpg)
+background-image: url(images/traps/martin-valdes-de-leon.jpg)
 
 ---
 class: code ide
@@ -327,8 +322,7 @@ const handler = {
         return property.length % 2;
     },
     apply: function(target, thisArg, argumentsList) {
-        target.args = argumentsList;
-        return target;
+        return `called me with ${argumentsList.join(' ')}`;
     }
 };
 
@@ -336,22 +330,13 @@ const target = () => {};
 const proxy = new Proxy(target, handler);
 
 delete proxy.foo;
+console.log('foo', proxy.foo); // nope
 
-console.log('foo', proxy.foo);
+console.log('odd', 'odd' in proxy); // true
+console.log('even', 'even' in proxy); // false
 
-console.log('odd', 'odd' in proxy);
-console.log('even', 'even' in proxy);
-
-proxy('some', 'args');
-
-console.log('args', proxy.args);
+console.log(proxy('some', 'args')); // called me with some args
 ```
-
----
-exclude: true
-class: splash
-name: virtual-objects
-background-image: url(images/virtual/mathieu-perrier-723464-unsplash.jpg)
 
 ---
 class: splash typeset
@@ -384,13 +369,13 @@ examples/
 ```
 const { A, B, C, D, E } = require('./proxies.js');
 
-A.foo.bar.qux = 'baz';
+console.log(A.foo.bar.qux);
 
-console.log(B.foo.bar.qux);
+B.foo.bar.qux = 'baz';
 
-C.foo.bar.qux('baz');
+delete C.foo.bar.qux;
 
-delete D.foo.bar.qux;
+D.foo.bar.qux('baz');
 
 if ('baz' in E.foo.bar.qux) {
     /* ... */
@@ -429,17 +414,17 @@ const P = ezp({
     // apply: function(props, args) { ... }
 }, '$');
 
-P.foo.bar.qux = 'baz';
-
 console.log(P.foo.bar.qux.$);
 
-P.foo.bar.qux('baz');
+P.foo.bar.qux = 'baz';
 
 delete P.foo.bar.qux;
 
 if ('baz' in P.foo.bar.qux) {
     /* ... */
 }
+
+P.foo.bar.qux('baz');
 ```
 
 ---
@@ -471,12 +456,9 @@ const ezp = require('ezp');
 /* ... */
 
 const API = ezp({
-    apply: async function(props, args) {
+    apply: function(props, args) {
         const [service, resource, method] = props;
         const [payload] = args;
-
-        if (!methodValid(method))
-            throw new Error(`Invalid method for resource ${resource}: ${method}`);
 
         return request(
             `https://${service}.foobar.com/${resource}`,
@@ -529,7 +511,7 @@ const D = deep();
 
 D.foo.bar.qux = 'baz';
 
-console.log(D.foo.bar.qux.$);
+console.log(D.foo.bar.qux.$); // baz
 ```
 
 ---
@@ -551,7 +533,6 @@ examples/
 ```
 const ezp = require('ezp');
 const fs = require('fs');
-const path = require('path');
 const R = require('ramda');
 const util = require('util');
 
@@ -573,11 +554,11 @@ function live(path) {
     }, '$');
 }
 
-const L = live(path.resolve([process.cwd(), './.living-object.json']));
+const L = live('./living-object.json');
 
 L.foo.bar.qux = 'baz';
 
-console.log(L.foo.bar.qux.$);
+console.log(L.foo.bar.qux.$); // baz
 ```
 
 ---
@@ -603,20 +584,25 @@ const ezp = require('ezp');
 function compose(map) {
    return ezp({
         apply: function(props, args) {
-            return props.reduceRight((result, prop) => [map[prop](...result)], args)[0];
+            return props.reduceRight(
+                (result, prop) => map[prop](result),
+                args[0]
+            );
         }
     });
 }
 
-let addOne = x => x + 1;
-let timesTwo = x => x * 2;
-let toString = x => x.toString();
+let username = obj => obj.username;
+let length = x => x.length;
+let tooLong = x => x > 10;
+let not = x => !x;
 
-({addOne, timesTwo, toString} = compose({addOne, timesTwo, toString}));
+({username, length, tooLong, not} = compose({username, length, tooLong, not}));
 
-console.log(
-    [1,2,3].map(toString.timesTwo.addOne)
-);
+const usernameValid = not . tooLong . length . username;
+
+usernameValid({username: 'tomato'}); // true
+usernameValid({username: 'cauliflower'}); // false
 ```
 
 ---
@@ -654,6 +640,15 @@ background-image: url(images/references/gabriel-sollmann-704393-unsplash.jpg)
 
 ---
 class: splash typeset
+name: thank-you
+background-image: url(images/thank-you/gerald-dino-466158-unsplash.jpg)
+
+# Thank<br />you
+
+## [github.com/mvaldesdeleon/magic-apis](https://github.com/mvaldesdeleon/magic-apis)<br />[@mvaldesdeleon](https://twitter.com/mvaldesdeleon)<br />[https://slack.meetupjs.com.ar/](https://slack.meetupjs.com.ar/)
+
+---
+class: splash typeset
 name: photo-references
 background-image: url(images/references/jason-leung-507082-unsplash.jpg)
 
@@ -661,12 +656,3 @@ background-image: url(images/references/jason-leung-507082-unsplash.jpg)
 
 ## In order of appearance, via [unsplash.com](https://unsplash.com/):
 ### [Sean Patrick Murphy](https://unsplash.com/photos/089q6pMX-AI), [Samuel Zeller](https://unsplash.com/photos/nSrY5fJ4B60), [Hack Capital](https://unsplash.com/photos/uv5_bsypFUM), [Yung Chang](https://unsplash.com/photos/qAShc5SV83M), [Fabio Bracht](https://unsplash.com/photos/e3oE-l-rtpA), [Edho Pratma](https://unsplash.com/photos/T6fDN60bMWY), [Andrej Lišakov](https://unsplash.com/photos/V2OyJtFqEtY), [Owen Beard](https://unsplash.com/photos/DK8jXx1B-1c), [Erica Nilsson](https://unsplash.com/photos/mNIE4uaD3do), [Matthew Henry](https://unsplash.com/photos/U5rMrSI7Pn4), [Chris Fuller](https://unsplash.com/photos/TXMp-vvrCg4), [Rod Long](https://unsplash.com/photos/siTxjRLSkTA), [Mathieu Perrier](https://unsplash.com/photos/YY8TCS9Px4c), [Andre Benz](https://unsplash.com/photos/Mn9Fa_wQH-M), [Toshi](https://unsplash.com/photos/9z6bXecIAi0), [rawpixel](https://unsplash.com/photos/6q6qRY2LQJQ), [Chris Knight](https://unsplash.com/photos/CxDTMOGnQwU), [Clark Tibbs](https://unsplash.com/photos/oqStl2L5oxI), [Gerald Dino](https://unsplash.com/photos/foBGqA36r2o), [Gabriel Sollmann](https://unsplash.com/photos/Y7d265_7i08) and [Jason Leung](https://unsplash.com/photos/pLwh3AI1zKE)
-
----
-class: splash typeset
-name: thank-you
-background-image: url(images/thank-you/gerald-dino-466158-unsplash.jpg)
-
-# Thank<br />you
-
-## [@mvaldesdeleon](https://twitter.com/mvaldesdeleon)<br />[github.com/mvaldesdeleon/magic-apis](https://github.com/mvaldesdeleon/magic-apis)
